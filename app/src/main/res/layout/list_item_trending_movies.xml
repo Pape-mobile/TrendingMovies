@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/white"
+    android:id="@+id/item_layout"
+    android:layout_margin="8dp">
+
+    <ImageView
+        android:id="@+id/poster_path"
+        android:layout_width="150dp"
+        android:layout_height="180dp"
+        android:scaleType="centerCrop"
+        android:background="@drawable/ic_baseline_local_movies_24"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="ContentDescription" />
+
+    <TextView
+        android:id="@+id/original_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        tools:text="Black Adam"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="4dp"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        android:textStyle="bold|italic"
+        app:layout_constraintLeft_toRightOf="@+id/poster_path"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintRight_toRightOf="parent"/>
+
+    <TextView
+        android:id="@+id/original_description"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:ellipsize="end"
+        android:maxLines="5"
+        android:textStyle="italic"
+        tools:text="Create an Android application that displays the list of trending movies, when we select one movie it shows more details about it. You can use the image below as a reference for implementing the UI but you are not required to follow it exactly. You can
+unleash your creativity.
+"
+        android:textColor="@android:color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/poster_path"
+        app:layout_constraintTop_toBottomOf="@+id/original_title" />
+
+    <RelativeLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginStart="8dp"
+        android:layout_marginBottom="4dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/poster_path"
+        app:layout_constraintTop_toBottomOf="@+id/original_description">
+
+        <TextView
+            android:id="@+id/release_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/ColorGrayDark"
+            android:textSize="18sp"
+            android:textStyle="bold|italic"
+            tools:text="2022-12-01" />
+
+        <TextView
+            android:id="@+id/vote_average"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="2dp"
+            android:textColor="@color/ColorGrayDark"
+            android:textSize="18sp"
+            android:textStyle="bold|italic"
+            tools:ignore="RelativeOverlap"
+            tools:text="7.8" />
+    </RelativeLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
