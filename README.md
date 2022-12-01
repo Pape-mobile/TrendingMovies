@@ -12,5 +12,4 @@ Android application that displays the list of trending movies, when we select on
 - LiveData
 - Navigation
 - Retrofit
-- OKHttp
 - Glide
