@@ -10,13 +10,15 @@ import com.sakine.yassirtrendingmovies.databinding.ListItemTrendingMoviesBinding
 import com.sakine.yassirtrendingmovies.models.Result
 import com.sakine.yassirtrendingmovies.utils.Constants.Companion.IMAGE_URL
 
-class TrendingMoviesAdapter : RecyclerView.Adapter<TrendingMoviesAdapter.TrendingMoviesViewHolder>() {
+class TrendingMoviesAdapter :
+    RecyclerView.Adapter<TrendingMoviesAdapter.TrendingMoviesViewHolder>() {
 
-    inner class TrendingMoviesViewHolder(private val binding: ListItemTrendingMoviesBinding) : RecyclerView.ViewHolder(binding.root){
+    inner class TrendingMoviesViewHolder(private val binding: ListItemTrendingMoviesBinding) :
+        RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(result: Result){
+        fun bind(result: Result) {
             binding.apply {
-                Glide.with(this.root).load(IMAGE_URL+result.poster_path).into(posterPath)
+                Glide.with(this.root).load(IMAGE_URL + result.poster_path).into(posterPath)
                 originalTitle.text = result.title
                 originalDescription.text = result.overview
                 releaseDate.text = result.release_date
@@ -28,7 +30,7 @@ class TrendingMoviesAdapter : RecyclerView.Adapter<TrendingMoviesAdapter.Trendin
         }
     }
 
-    private val differCallback = object : DiffUtil.ItemCallback<Result>(){
+    private val differCallback = object : DiffUtil.ItemCallback<Result>() {
         override fun areItemsTheSame(oldItem: Result, newItem: Result): Boolean {
             return oldItem.id == newItem.id
         }
@@ -59,9 +61,9 @@ class TrendingMoviesAdapter : RecyclerView.Adapter<TrendingMoviesAdapter.Trendin
         return differ.currentList.size
     }
 
-    private var onItemClickListener : ((Result) -> Unit)? = null
+    private var onItemClickListener: ((Result) -> Unit)? = null
 
-    fun setOnItemClickListener(listener: ((Result) -> Unit)){
+    fun setOnItemClickListener(listener: ((Result) -> Unit)) {
         onItemClickListener = listener
     }
 }

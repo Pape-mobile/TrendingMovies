@@ -1,6 +1,5 @@
 package com.sakine.yassirtrendingmovies.ui.fragments
 
-import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -11,7 +10,6 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
 import com.google.android.material.chip.Chip
-import com.sakine.yassirtrendingmovies.R
 import com.sakine.yassirtrendingmovies.databinding.FragmentTrendingMoviesDetailBinding
 import com.sakine.yassirtrendingmovies.ui.TrendingMoviesActivity
 import com.sakine.yassirtrendingmovies.ui.TrendingMoviesViewModel

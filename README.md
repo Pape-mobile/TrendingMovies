@@ -10,6 +10,8 @@ Android application that displays the list of trending movies, when we select on
 ## LIBRARY
 - ViewModel
 - LiveData
+- Coroutines
+- ViewBinding
 - Navigation
 - Retrofit
 - Glide
