@@ -10,30 +10,24 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
 import com.google.android.material.chip.Chip
+import com.sakine.yassirtrendingmovies.R
 import com.sakine.yassirtrendingmovies.databinding.FragmentTrendingMoviesDetailBinding
 import com.sakine.yassirtrendingmovies.ui.TrendingMoviesActivity
 import com.sakine.yassirtrendingmovies.ui.TrendingMoviesViewModel
 import com.sakine.yassirtrendingmovies.utils.Constants.Companion.IMAGE_URL
 import com.sakine.yassirtrendingmovies.utils.Resource
 
-class TrendingMoviesDetailFragment : Fragment() {
-    private lateinit var binding: FragmentTrendingMoviesDetailBinding
+class TrendingMoviesDetailFragment : Fragment(R.layout.fragment_trending_movies_detail) {
+    private var _binding: FragmentTrendingMoviesDetailBinding? = null
+    private val binding get() = _binding!!
     private val args: TrendingMoviesDetailFragmentArgs by navArgs()
     private lateinit var viewModel: TrendingMoviesViewModel
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        binding = FragmentTrendingMoviesDetailBinding.inflate(inflater, container, false)
-        context ?: binding.root
-
-        return binding.root
-    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        _binding = FragmentTrendingMoviesDetailBinding.bind(view)
 
         viewModel = (activity as TrendingMoviesActivity).viewModel
 
@@ -86,10 +80,10 @@ class TrendingMoviesDetailFragment : Fragment() {
     }
 
     private fun hideProgressBar() {
-        binding.paginationProgressBar.visibility = View.INVISIBLE
+        binding.progressBar.visibility = View.INVISIBLE
     }
 
     private fun showProgressBar() {
-        binding.paginationProgressBar.visibility = View.VISIBLE
+        binding.progressBar.visibility = View.VISIBLE
     }
 }

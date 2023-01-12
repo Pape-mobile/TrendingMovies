@@ -8,30 +8,23 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.sakine.yassirtrendingmovies.R
 import com.sakine.yassirtrendingmovies.adapters.TrendingMoviesAdapter
 import com.sakine.yassirtrendingmovies.databinding.FragmentTrendingMoviesHomeBinding
 import com.sakine.yassirtrendingmovies.ui.TrendingMoviesActivity
 import com.sakine.yassirtrendingmovies.ui.TrendingMoviesViewModel
 import com.sakine.yassirtrendingmovies.utils.Resource
 
-class TrendingMoviesHomeFragment : Fragment() {
-    private lateinit var binding: FragmentTrendingMoviesHomeBinding
+class TrendingMoviesHomeFragment : Fragment(R.layout.fragment_trending_movies_home) {
+    private var _binding: FragmentTrendingMoviesHomeBinding? = null
+    private val binding get() = _binding!!
     private lateinit var adapterTrendingMovies: TrendingMoviesAdapter
     private lateinit var viewModel: TrendingMoviesViewModel
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        binding = FragmentTrendingMoviesHomeBinding.inflate(inflater, container, false)
-        context ?: binding.root
-
-        return binding.root
-    }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        _binding = FragmentTrendingMoviesHomeBinding.bind(view)
 
         viewModel = (activity as TrendingMoviesActivity).viewModel
 
@@ -43,6 +36,11 @@ class TrendingMoviesHomeFragment : Fragment() {
             val direction = TrendingMoviesHomeFragmentDirections.actionTrendingMoviesHomeFragmentToTrendingMoviesDetailFragment(it)
             findNavController().navigate(direction)
         }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        _binding = null
     }
 
     private fun getAllTrendingMovies(){
@@ -68,11 +66,11 @@ class TrendingMoviesHomeFragment : Fragment() {
     }
 
     private fun hideProgressBar() {
-        binding.paginationProgressBar.visibility = View.INVISIBLE
+        binding.progressBar.visibility = View.INVISIBLE
     }
 
     private fun showProgressBar() {
-        binding.paginationProgressBar.visibility = View.VISIBLE
+        binding.progressBar.visibility = View.VISIBLE
     }
 
     private fun setupRecyclerView() {

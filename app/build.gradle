@@ -50,6 +50,10 @@ dependencies {
     // Lifecycles only (without ViewModel or LiveData)
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.5.1")
 
+    //Paging
+    implementation("androidx.paging:paging-runtime-ktx:3.1.1") // For Kotlin use paging-runtime-ktx
+
+
     // Kotlin Navigation components
     implementation("androidx.navigation:navigation-fragment-ktx:2.5.3")
     implementation("androidx.navigation:navigation-ui-ktx:2.5.3")
@@ -67,6 +71,7 @@ dependencies {
     // Glide
     implementation 'com.github.bumptech.glide:glide:4.11.0'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
+
 
 
 

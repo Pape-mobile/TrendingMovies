@@ -18,7 +18,7 @@ class TrendingMoviesAdapter :
 
         fun bind(result: Result) {
             binding.apply {
-                Glide.with(this.root).load(IMAGE_URL + result.poster_path).into(posterPath)
+                Glide.with(itemView).load(IMAGE_URL + result.poster_path).into(posterPath)
                 originalTitle.text = result.title
                 originalDescription.text = result.overview
                 releaseDate.text = result.release_date
